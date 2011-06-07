@@ -1,0 +1,24 @@
+<table class="profile" summary="Profile information">
+  <tr>
+    <td class="main">
+      <h1>
+        <%= gravatar_for @club %>
+        <%= @club.login %>
+      </h1>
+	  <% unless @club.members.empty? %>
+        <table class="club_members" summary="Club Members">
+          <%= render @members %>
+        </table>
+        
+      <% end %>
+    </td>
+	<%if session[:club_id]==@club.id%>
+    	<td class="sidebar round">
+      		<strong>Name</strong> <%= @club.name %><br />
+      		<strong>URL</strong>  <%= link_to club_path(@club), @club %><br />
+      		<strong>Club members</strong>  <%= @club.members.count %><br />
+      		<strong><%= link_to 'Edit', edit_club_path(@student) %></strong>
+    	</td>
+	<%end%>
+  </tr>
+</table>

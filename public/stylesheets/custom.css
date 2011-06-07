@@ -1,0 +1,166 @@
+	/* CSS Document */
+
+body {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	color:#666666;
+	margin:0;
+	padding:0;
+	font-size: 13px;
+	background-image:   url(../images/bg.gif);
+	height: 143px;
+	text-align: center;
+
+}
+
+
+#toplinks {
+	text-align: right;
+	color: #333333;
+	height: 49px;
+	width: 925px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	padding-top: 17px;
+	padding-left: 50px;
+}
+
+
+#toplinks a {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #333333;
+	text-transform: uppercase;
+	text-decoration: none;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #999999;
+	font-weight: bold;
+	padding-right: 8px;
+	padding-left: 8px;
+}
+#toplinks a:hover {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #666666;
+	text-decoration: underline;
+
+}
+#header {
+	width: 980px;
+	height: 100px;
+	text-align: left;
+	background-image: url(../images/banner.jpg);
+	background-repeat: no-repeat;
+
+
+
+}
+
+#bottombody {
+	position:relative;
+	width: 980px;
+	height:640px;
+	
+}
+#leftpart {
+	float: left; 
+	width: 70%; /* optionale Weitenangabe */
+	
+
+}
+#rightpart{
+	float: right; 
+	width: 30%; /* optionale Weitenangabe */
+	
+
+}
+#rails_content{
+	padding-left: 150px;
+}
+#footer {
+	height: 145px;
+	width: 980px;
+	text-align: left;
+	background-image: url(../images/footerbg.gif);
+	background-repeat: no-repeat;
+	position:
+
+}
+
+#flinks {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #D6D9DF;
+	font-weight: normal;
+	text-transform: none;
+	text-align: center;
+	padding-top: 60px;
+
+}
+.signup_button_round{
+	margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+  width: 190px;
+  color: #fff;
+  background: #006400;
+  font-size: 150%;
+  font-weight: bold;
+  padding: 20px;
+	
+}
+#rails_content{
+	padding-top:100px;
+	padding-left:0px;
+}
+
+#headertxt01{
+	color: #000000;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    padding-left: 32px;
+    padding-top: 35px;
+	width:10px;
+	float:left;
+	
+}
+
+/* User show page */
+
+table.profile {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+td.main {
+  width: 70%;
+  padding: 1em;
+}
+
+td.sidebar {
+  width: 30%;
+  padding: 1em;
+  vertical-align: top;
+  background: #ffc;
+}
+
+.profile img.gravatar {
+  border: 1px solid #999;
+  margin-bottom: -15px;
+}
+#errorExplanation{
+	color:#CC0000;
+}
+
+ul.clubs {
+  margin-top: 1em;
+}
+
+.clubs li {
+  list-style: none;
+}
+
+

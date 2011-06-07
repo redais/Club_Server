@@ -1,0 +1,8 @@
+<%if logged_in?%>
+<%club= Club.find(session[:club_id]).name%>
+<h1><%=club%></h1>
+<%else%>
+<h1>Welcome</h1>
+<%end%>
+
+

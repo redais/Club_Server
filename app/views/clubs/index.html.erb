@@ -1,0 +1,10 @@
+<h1>All clubs</h1>
+
+<ul class="clubs">
+  <% @clubs.each do |club| %>
+    <li>
+      <%= gravatar_for club, :size => 30 %>
+      <%= link_to club.name, club %>
+    </li>
+  <% end %>
+</ul>
