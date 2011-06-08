@@ -1,5 +1,46 @@
-<h1>New member</h1>
+<h1>Sign up as a new member</h1>
 
-<%= render 'form' %>
 
-<%= link_to 'Back', members_path %>
+<%= error_messages_for :member %>
+<%= form_for :member, :url => members_path do |f| -%>
+
+<p><%= label_tag 'First name' %><br/>
+<%= f.text_field :first_name %></p>
+
+<p><%= label_tag 'Last name' %><br/>
+<%= f.text_field :last_name %></p>
+
+<p><%= label_tag 'Email' %><br/>
+<%= f.text_field :email %></p>
+
+<%= f.label 'gender' %><br />
+   	<ul>
+   		<li>Woman<%= f.radio_button :sex,'w'%></li>
+   		<li>Man<%= f.radio_button :sex,'m'%></li>
+   	</ul>
+
+<p><%= label_tag 'address' %><br/>
+<%= f.text_field :address %></p>
+
+<p><%= label_tag 'postale code' %><br/>
+<%= f.text_field :postale_code %></p>
+
+<p><%= label_tag 'city' %><br/>
+<%= f.text_field :city %></p>
+
+<p><%= f.label :birthday %><br />
+<%= f.date_select :birthday, :start_year => 1910 %></p>
+  
+<p><%= f.label :chip_id %><br />
+<%= f.text_field :chip_id %>
+</p>
+
+<p><%= label_tag 'password' %><br/>
+<%= f.password_field :password %></p>
+
+<p><%= label_tag 'password_confirmation', 'Confirm Password' %><br/>
+<%= f.password_field :password_confirmation %></p>
+
+<p><%= submit_tag 'Sign up' %></p>
+
+<% end -%>
