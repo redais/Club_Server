@@ -22,14 +22,10 @@ class MembersController < ApplicationController
   end
 
   # GET /members/new
-  # GET /members/new.xml
+  
   def new
+    @title="Sign up"
     @member = Member.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @member }
-    end
   end
 
   # GET /members/1/edit
@@ -41,18 +37,21 @@ class MembersController < ApplicationController
   # POST /members.xml
   def create
     @club=Club.find(session[:current_club])
+    @title="Sign up"
+    logout_keeping_session!
     @member = @club.members.build(params[:member])
+    success = @member && @member.save
    
    
-      if @member.save
-        #session[:current_club]=nil
+      if success
+        session[:current_club]=nil
         # Member dem Club zuordnen
         @club.members << @member
         flash[:success] = "Member created for #{@club.name}"
-        #redirect_to root_path
-        
+        redirect_to(login_path)
       else
-        render 'pages/home'
+        flash.now[:error]  = "We couldn't set up that account, sorry.  Please try again, or contact an admin. "
+        render :action => 'new'
       end
     
   end
