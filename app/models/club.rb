@@ -52,15 +52,10 @@ class Club < ActiveRecord::Base
   
   
 
-  def login=(value)
-    write_attribute :login, (value ? value.downcase : nil)
-  end
+  
 
-  def email=(value)
-    write_attribute :email, (value ? value.downcase : nil)
-  end
-
-  protected
+ 
+ 
     
 
 

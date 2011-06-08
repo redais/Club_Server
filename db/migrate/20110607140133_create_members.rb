@@ -11,8 +11,8 @@ class CreateMembers < ActiveRecord::Migration
       t.integer :postale_code
       t.date :birthday
       t.integer :chip_id
-      t.string :password
-
+      t.string :crypted_password, :string, :limit => 40
+      t.string :salt,             :string, :limit => 40
       t.timestamps
     end
     add_index :members, :email, :unique => true

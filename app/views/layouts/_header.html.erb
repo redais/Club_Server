@@ -6,7 +6,7 @@
 		<%= link_to "Events", '#' %>
         <% if logged_in? %>
 			<% club= Club.find(session[:club_id]) %>
-			<%= link_to_club club, :content_text => 'Your Account' %>
+			
 			
       		<%= link_to "Log out[#{club.login}]", logout_path, :method => :delete %>
 		 <% else %>

@@ -5,20 +5,28 @@
         <%= gravatar_for @club %>
         <%= @club.login %>
       </h1>
-	  <% unless @club.members.empty? %>
-        <table class="club_members" summary="Club Members">
-          <%= render @members %>
-        </table>
-        
-      <% end %>
-    </td>
-	<%if session[:club_id]==@club.id%>
-    	<td class="sidebar round">
+	  <%if session[:club_id]==@club.id%>
+	  	<% unless @club.members.empty? %>
+        	<table class="club_members" summary="Club Members">
+          		<%= render @members %>
+        	</table>
+       	<% end %>
+		<td class="sidebar round">
       		<strong>Name</strong> <%= @club.name %><br />
       		<strong>URL</strong>  <%= link_to club_path(@club), @club %><br />
       		<strong>Club members</strong>  <%= @club.members.count %><br />
       		<strong><%= link_to 'Edit', edit_club_path(@student) %></strong>
     	</td>
-	<%end%>
+	  <% end%>
+	  <%if session[:club_id]==nil%>
+	  	<td class="sidebar round">
+      		
+      		<strong><%= link_to 'Sign up to join', '../members/new' %></strong>
+    	</td>
+	  <%end%>
+	  	
+	 
+	 </td>
+	  
   </tr>
 </table>

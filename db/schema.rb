@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(:version => 20110607141309) do
     t.string   "login",                     :limit => 40
     t.string   "name",                      :limit => 100, :default => ""
     t.string   "address",                   :limit => 100, :default => ""
-    t.integer  "postale_code",              :limit => 5,   :default => 0
+    t.integer  "postale_code"
     t.string   "city",                      :limit => 100, :default => ""
     t.string   "contact_person",            :limit => 100, :default => ""
     t.string   "crypted_password",          :limit => 40
@@ -45,7 +45,8 @@ ActiveRecord::Schema.define(:version => 20110607141309) do
     t.integer  "postale_code"
     t.date     "birthday"
     t.integer  "chip_id"
-    t.string   "password"
+    t.string   "crypted_password", :limit => 40
+    t.string   "salt",             :limit => 40
     t.datetime "created_at"
     t.datetime "updated_at"
   end

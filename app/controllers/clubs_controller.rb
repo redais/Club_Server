@@ -59,10 +59,11 @@ class ClubsController < ApplicationController
   def show
     @club = Club.find(params[:id])
     @members=@club.members
+    session[:current_club] = @club.id
     @title = @club.login
     #respond_to do |format|
-     # format.html # show.html.erb
-     # format.xml  { render :xml => @student }
+      #format.html # show.html.erb
+      #format.xml  { render :xml => @student }
     #end
   end
   

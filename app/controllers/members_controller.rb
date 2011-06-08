@@ -40,17 +40,21 @@ class MembersController < ApplicationController
   # POST /members
   # POST /members.xml
   def create
-    @member = Member.new(params[:member])
-
-    respond_to do |format|
+    @club=Club.find(session[:current_club])
+    @member = @club.members.build(params[:member])
+   
+   
       if @member.save
-        format.html { redirect_to(@member, :notice => 'Member was successfully created.') }
-        format.xml  { render :xml => @member, :status => :created, :location => @member }
+        #session[:current_club]=nil
+        # Member dem Club zuordnen
+        @club.members << @member
+        flash[:success] = "Member created for #{@club.name}"
+        #redirect_to root_path
+        
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @member.errors, :status => :unprocessable_entity }
+        render 'pages/home'
       end
-    end
+    
   end
 
   # PUT /members/1

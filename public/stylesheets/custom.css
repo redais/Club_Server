@@ -21,7 +21,7 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	padding-top: 17px;
-	padding-left: 50px;
+	padding-left: 200px;
 }
 
 
@@ -162,5 +162,52 @@ ul.clubs {
 .clubs li {
   list-style: none;
 }
+
+h1.member {
+  margin-bottom: 0.3em;
+}
+
+table.members {
+  margin-top: 1em;
+}
+
+table.members tr {
+  height: 70px;
+}
+
+table.members tr td.gravatar {
+  border-top: 1px solid #ccc;
+  vertical-align: top;
+  width: 50px;
+}
+
+table.members tr td.member {
+  border-top: 1px solid #ccc;
+  vertical-align: top;
+  padding-top: 10px;
+}
+
+
+
+div.club_info img {
+  padding-right: 0.1em;
+}
+
+div.club_info a {
+  text-decoration: none;
+}
+
+div.club_info span.club_name {
+  position: absolute;
+}
+
+div.club_info span.members {
+  font-size: 80%;
+}
+
+form.new_member {
+  margin-bottom: 2em;
+}
+
 
 

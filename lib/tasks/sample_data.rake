@@ -1,6 +1,6 @@
 namespace :db do
   desc "Fill database with sample data"
-  task :make_clubs => :environment do
+  task :fill => :environment do
     Rake::Task['db:reset'].invoke
     Club.create!(:name => "Example Club",
                  :login => "ex_club",
@@ -23,6 +23,9 @@ namespace :db do
        
       
     end
+=begin
+
+
     Club.all.each do |club|
       50.times do |n|
         club.members.create!(:first_name=>"member#{n+1}_firstname",  
@@ -36,6 +39,7 @@ namespace :db do
                                :chip_id=>"#{n+1}")
       end
     end
+=end
   end
 end
 

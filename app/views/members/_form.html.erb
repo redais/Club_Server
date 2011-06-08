@@ -20,13 +20,12 @@
     <%= f.text_field :last_name %>
   </div>
   <div class="field">
-    <%= f.label :club_id %><br />
-    <%= f.text_field :club_id %>
-  </div>
-  <div class="field">
-    <%= f.label :sex %><br />
-    <%= f.text_field :sex %>
-  </div>
+    <%= f.label 'gender' %><br />
+   	<ul>
+   		<li>Woman<%= f.radio_button :sex,'w'%></li>
+   		<li>Man<%= f.radio_button :sex,'m'%></li>
+   	</ul>
+   </div>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.text_field :email %>
@@ -45,7 +44,7 @@
   </div>
   <div class="field">
     <%= f.label :birthday %><br />
-    <%= f.date_select :birthday %>
+    <%= f.date_select :birthday, :start_year => 1910 %>
   </div>
   <div class="field">
     <%= f.label :chip_id %><br />
@@ -53,8 +52,13 @@
   </div>
   <div class="field">
     <%= f.label :password %><br />
-    <%= f.text_field :password %>
+    <%= f.password_field :password %>
   </div>
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %>
+  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
