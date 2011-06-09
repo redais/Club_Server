@@ -11,16 +11,24 @@ class SessionsController < ApplicationController
   def create
     logout_keeping_session!
     club = Club.authenticate(params[:login], params[:password])
+    member= Member.authenticate(params[:login], params[:password])
     if club
       # Protects against session fixation attacks, causes request forgery
       # protection if club resubmits an earlier form using back
       # button. Uncomment if you understand the tradeoffs.
       # reset_session
-      create_sessions(club)
+      create_club_sessions(club)
       new_cookie_flag = (params[:remember_me] == "1")
       handle_remember_cookie! new_cookie_flag
       #redirect_back_or_default('/', :notice => "Logged in successfully")
-      redirect_to(club, :success => "Logged in successfully")
+      redirect_to(club, :success => "Logged in successfully as club")
+    elsif member
+      create_member_sessions(member)
+      new_cookie_flag = (params[:remember_me] == "1")
+      handle_remember_cookie! new_cookie_flag
+      #redirect_back_or_default('/', :notice => "Logged in successfully")
+      redirect_to(member, :success => "Logged in successfully as member")
+    
     else
       note_failed_signin
       @login       = params[:login]
