@@ -20,7 +20,8 @@ class Member < ActiveRecord::Base
                           
   validates :email,       :format     => {:with => Authentication.email_regex, :message => Authentication.bad_email_message},
                           :length     => {:maximum => 50},
-                          :presence   => true
+                          :presence   => true,
+                          :uniqueness => true,
   
   validates :password,    :presence     => true,
                           :confirmation => true,
