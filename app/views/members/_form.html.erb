@@ -50,14 +50,11 @@
     <%= f.label :chip_id %><br />
     <%= f.text_field :chip_id %>
   </div>
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
-  </div>
+  <p><%= label_tag 'password' %><br/>
+  <%= f.password_field :password %></p>
+
+<p><%= label_tag 'password_confirmation', 'Confirm Password' %><br/>
+<%= f.password_field :password_confirmation %></p>
   
   <div class="actions">
     <%= f.submit %>

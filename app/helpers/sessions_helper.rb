@@ -1,7 +1,9 @@
 module SessionsHelper
   
   
-     
+    
+
+ 
     
     def current_club
       $current_club     # Useless! Don't use this line.
@@ -10,9 +12,15 @@ module SessionsHelper
   
     # Returns true or false if the club is logged in.
     # Preloads @current_club with the club model if they're logged in.
-    def logged_in?
+    def club_logged_in?
       #!!current_club
       !session[:club_id].nil?
+      
+    end
+    def member_logged_in?
+      #!!current_club
+      !session[:member_id].nil?
+      
     end
     
     
@@ -32,17 +40,19 @@ module SessionsHelper
     #end
 
     # Store the given club id in the session.
-    def create_sessions(new_club)
+    def create_club_sessions(new_club)
       session[:club_id] = new_club ? new_club.id : nil
       
       # The purpose of this line is to create current_club, 
       # accessible in both controllers and views, which will allow constructions such as
       # <%= current_club.name %> and redirect_to current_club
-      
-     
-        $current_club = new_club || false
-        
-        
+      $current_club = new_club || false
+    end
+    
+    
+    def create_member_sessions(new_member)
+      session[:member_id] = new_member ? new_member.id : nil
+      #$current_club = new_club || false
     end
     
    
@@ -68,7 +78,7 @@ module SessionsHelper
     #  end
     #
     def authorized?(action = action_name, resource = nil)
-      logged_in?
+      club_logged_in?
     end
 
     # Filter method to enforce a login requirement.
@@ -132,7 +142,7 @@ module SessionsHelper
     # Inclusion hook to make #current_club and #logged_in?
     # available as ActionView helper methods.
     def self.included(base)
-      base.send :helper_method, :current_club, :logged_in?, :authorized? if base.respond_to? :helper_method
+      base.send :helper_method, :current_club, :club_logged_in?, :authorized? if base.respond_to? :helper_method
     end
 
     #
@@ -174,7 +184,9 @@ module SessionsHelper
       @current_club.forget_me if @current_club.is_a? Club
       @current_club = false     # not logged in, and don't do it for me
       kill_remember_cookie!     # Kill client-side auth cookie
+      cookies.delete(:remember_token)
       session[:club_id] = nil   # keeps the session but kill our variable
+      session[:member_id]= nil
       # explicitly kill any other session variables you set
     end
 
@@ -220,6 +232,16 @@ module SessionsHelper
       cookies[:auth_token] = {
         :value   => @current_club.remember_token,
         :expires => @current_club.remember_token_expires_at }
+    end
+    
+    private
+
+    def member_from_remember_token
+      Member.authenticate_with_salt(*remember_token)
+    end
+
+    def remember_token
+      cookies.signed[:remember_token] || [nil, nil]
     end
 
 

@@ -6,7 +6,7 @@ class Club < ActiveRecord::Base
   include Authentication::ByCookieToken
   include Authentication::ModelInstanceMethods
   
-  has_and_belongs_to_many :members # :dependent => :destroy
+  has_many :members ,:dependent => :destroy
 
 
   set_table_name 'clubs'
@@ -25,10 +25,17 @@ class Club < ActiveRecord::Base
                        :confirmation => true,
                        :length       => { :within => 6..40 }
  
-  validates :address, :presence =>true
-  validates :postale_code, :presence   => true
-  validates_inclusion_of :postale_code, :in => 10000..99999, :message => "can only be between 10000 and 99999."
-  validates :city, :presence =>true
+  validates :address, :presence =>true,
+                      :length   => { :maximum => 50 }
+  
+  validates :postale_code, :presence   => true,
+                           :format  => {:with => %r{\d{5}},:message => "should be 12345 "}
+ 
+  
+  validates :city, :presence =>true,
+                   :format     => { :with => Authentication.name_regex, :message => Authentication.bad_name_message },
+                   :length     => { :maximum => 50 }
+  
   #before_save :crypted_password
   
   # how to do attr_accessible from here?
