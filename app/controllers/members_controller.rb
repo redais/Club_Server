@@ -44,9 +44,9 @@ class MembersController < ApplicationController
    
    
       if success
-        session[:current_club]=nil
+        #session[:current_club]=nil
         # Member dem Club zuordnen
-        @club.members << @member
+        # @club.members << @member
         flash[:success] = "Member created for #{@club.name}"
         redirect_to(login_path)
       else
