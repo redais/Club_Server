@@ -41,3 +41,30 @@ REQUESTING PAGE: GET /signup with {} and HTTP headers {}
 REQUESTING PAGE: POST /clubs with {"utf8"=>"\xE2\x9C\x93", "club"=>{"login"=>"", "name"=>"", "address"=>"", "postale_code"=>"", "city"=>"", "contact_person"=>"", "password"=>"", "password_confirmation"=>""}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
 REQUESTING PAGE: GET /signup with {} and HTTP headers {}
 REQUESTING PAGE: POST /clubs with {"utf8"=>"\xE2\x9C\x93", "club"=>{"login"=>"", "name"=>"", "address"=>"", "postale_code"=>"", "city"=>"", "contact_person"=>"", "password"=>"", "password_confirmation"=>""}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+REQUESTING PAGE: POST /clubs with {"utf8"=>"\xE2\x9C\x93", "club"=>{"login"=>"", "name"=>"", "address"=>"", "postale_code"=>"", "city"=>"", "contact_person"=>"", "password"=>"", "password_confirmation"=>""}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+REQUESTING PAGE: POST /clubs with {"utf8"=>"\xE2\x9C\x93", "club"=>{"login"=>"", "name"=>"", "address"=>"", "postale_code"=>"", "city"=>"", "contact_person"=>"", "password"=>"", "password_confirmation"=>""}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+REQUESTING PAGE: POST /clubs with {"utf8"=>"\xE2\x9C\x93", "club"=>{"login"=>"", "name"=>"", "address"=>"", "postale_code"=>"", "city"=>"", "contact_person"=>"", "password"=>"", "password_confirmation"=>""}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /session with {"utf8"=>"\xE2\x9C\x93", "login"=>"fcb_club", "password"=>"111111", "commit"=>"Log in"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /session with {"utf8"=>"\xE2\x9C\x93", "login"=>"fcb_club", "password"=>"111111", "commit"=>"Log in"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+REQUESTING PAGE: POST /clubs with {"utf8"=>"\xE2\x9C\x93", "club"=>{"login"=>"", "name"=>"", "address"=>"", "postale_code"=>"", "city"=>"", "contact_person"=>"", "password"=>"", "password_confirmation"=>""}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+REQUESTING PAGE: POST /clubs with {"utf8"=>"\xE2\x9C\x93", "club"=>{"login"=>"", "name"=>"", "address"=>"", "postale_code"=>"", "city"=>"", "contact_person"=>"", "password"=>"", "password_confirmation"=>""}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /session with {"utf8"=>"\xE2\x9C\x93", "login"=>"fcb_club", "password"=>"111111", "commit"=>"Log in"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+REQUESTING PAGE: POST /clubs with {"utf8"=>"\xE2\x9C\x93", "club"=>{"login"=>"", "name"=>"", "address"=>"", "postale_code"=>"", "city"=>"", "contact_person"=>"", "password"=>"", "password_confirmation"=>""}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /session with {"utf8"=>"\xE2\x9C\x93", "login"=>"fcb_club", "password"=>"111111", "commit"=>"Log in"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET /signup with {} and HTTP headers {}
+REQUESTING PAGE: POST /clubs with {"utf8"=>"\xE2\x9C\x93", "club"=>{"login"=>"", "name"=>"", "address"=>"", "postale_code"=>"", "city"=>"", "contact_person"=>"", "password"=>"", "password_confirmation"=>""}, "commit"=>"Sign up"} and HTTP headers {"HTTP_REFERER"=>"/signup"}
+REQUESTING PAGE: GET /login with {} and HTTP headers {}
+REQUESTING PAGE: POST /session with {"utf8"=>"\xE2\x9C\x93", "login"=>"fcb_club", "password"=>"111111", "commit"=>"Log in"} and HTTP headers {"HTTP_REFERER"=>"/login"}
+REQUESTING PAGE: GET http://www.example.com/clubs/1 with {} and HTTP headers {"HTTP_REFERER"=>"/session"}
+REQUESTING PAGE: GET / with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/clubs/1"}

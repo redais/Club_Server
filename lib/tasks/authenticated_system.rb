@@ -2,7 +2,7 @@ module AuthenticatedSystem
   protected
     # Returns true or false if the club is logged in.
     # Preloads @current_club with the club model if they're logged in.
-    def logged_in?
+    def club_logged_in?
       !!current_club
     end
 
@@ -32,7 +32,7 @@ module AuthenticatedSystem
     #  end
     #
     def authorized?(action = action_name, resource = nil)
-      logged_in?
+      club_logged_in?
     end
 
     # Filter method to enforce a login requirement.
@@ -96,7 +96,7 @@ module AuthenticatedSystem
     # Inclusion hook to make #current_club and #logged_in?
     # available as ActionView helper methods.
     def self.included(base)
-      base.send :helper_method, :current_club, :logged_in?, :authorized? if base.respond_to? :helper_method
+      base.send :helper_method, :current_club, :club_logged_in?, :authorized? if base.respond_to? :helper_method
     end
 
     #

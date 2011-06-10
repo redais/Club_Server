@@ -2,44 +2,41 @@ namespace :db do
   desc "Fill database with sample data"
   task :fill => :environment do
     Rake::Task['db:reset'].invoke
-    Club.create!(:name => "Example Club",
-                 :login => "ex_club",
-                 :password => "secret",
-                 :password_confirmation => "secret",
-                 :address=>"hjshdjhsjd",
-                 :postale_code => '12134',
-                  :city =>'mainz')
-    10.times do |n|
+    
+    20.times do |n|
       name  = "test club #{n+1} "
       login = "club_#{n+1}"
       password  = "111111"
       Club.create!(:name => name,
                    :login => login,
-                   :address=>'test',
-                    :postale_code =>'10002',
-                    :city =>'test',
-                   :password => password,
-                   :password_confirmation => password)
+                   :address=>Faker::Address.street_name + "#{n+1}",
+                    :postale_code =>"1111#{n}",
+                    :city =>Faker::Address.city,
+                    :contact_person =>Faker::Name.name,
+                    :password => password,
+                    :password_confirmation => password)
        
       
     end
-=begin
+
 
 
     Club.all.each do |club|
-      50.times do |n|
-        club.members.create!(:first_name=>"member#{n+1}_firstname",  
-                               :last_name=>"member#{n+1}_lastname",
-                               :sex=>"member#{n+1} m",
-                               :email=>"member#{n+1}_@example.com",
-                               :city=>"member#{n+1}_city",
-                               :address=>"member#{n+1}_addr",
-                               :postale_code=>"#{n+1}1865",
-                               :birthday=>"2001-08-09",
-                               :chip_id=>"#{n+1}")
+      45.times do |n|
+        club.members.create!(  :first_name=>Faker::Name.first_name,  
+                               :last_name=>Faker::Name.last_name,
+                               :sex=>"male",
+                               :email=>Faker::Internet.email,
+                               :city=> Faker::Address.city,
+                               :address=>Faker::Address.street_name + "#{n+1}",
+                               :postale_code=>"1111#{n}",
+                               :birthday=>"2001-08-#{n+1}",
+                               :chip_id=>Faker::Address.zip_code,
+                               :password => "111111",
+                               :password_confirmation => "111111")
       end
     end
-=end
+
   end
 end
 

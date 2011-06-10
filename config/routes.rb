@@ -7,19 +7,11 @@ My::Application.routes.draw do
 
   resource :session, :only => [:new, :create, :destroy]
   
-  #get "clubs/edit"
-
-  #get "clubs/new"
-
   get "pages/home"
 
   match 'signup' => 'clubs#new', :as => :signup
-  
-
   match 'register' => 'clubs#create', :as => :register
-
   match 'login' => 'sessions#new', :as => :login
-
   match 'logout' => 'sessions#destroy', :as => :logout
   
   #match '/home' => 'pages#home', :as => :home

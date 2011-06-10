@@ -1,10 +1,9 @@
 <h1>All clubs</h1>
-
+<%= will_paginate %>
 <ul class="clubs">
   <% @clubs.each do |club| %>
-    <li>
-      <%= gravatar_for club, :size => 30 %>
-      <%= link_to club.name, club %>
-    </li>
+    <%= render club %>
   <% end %>
 </ul>
+
+<%= will_paginate %>

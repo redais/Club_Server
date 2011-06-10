@@ -33,11 +33,15 @@ RSpec.configure do |config|
           fill_in "club_address", :with => club.address
           fill_in "club_postale_code", :with => club.postale_code
           fill_in "club_city", :with => club.city
+          fill_in "club_contact_person", :with => club.contact_person
       click_button
   end
   
-  def test_sign_in(club)
-    controller.create_sessions(club)
+  def test_club_sign_in(club)
+    controller.create_club_sessions(club)
+  end
+  def test_member_sign_in(member)
+    controller.create_club_sessions(member)
   end
 
 

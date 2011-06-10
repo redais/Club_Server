@@ -10,7 +10,8 @@ describe Club do
               :password_confirmation=>"secret",
               :address=>"hjshdjhsjd",
               :postale_code => '12134',
-              :city =>'mainz'
+              :city =>'mainz',
+              :contact_person=>"foo"
              }
   end
 
@@ -50,6 +51,18 @@ describe Club do
   it "should require a city" do
     no_city_club = Club.new(@attr.merge(:city => ""))
     no_city_club.should_not be_valid
+  end
+  
+  it "should require a contact person" do
+    no_contact_person_club = Club.new(@attr.merge(:contact_person => ""))
+    no_contact_person_club.should_not be_valid
+  end
+  
+  it "should reject duplicate logins" do
+    # Put a user with given email address into the database.
+    Club.create!(@attr)
+    club_with_duplicate_login = Club.new(@attr)
+    club_with_duplicate_login.should_not be_valid
   end
   
   it "should reject names that are too long" do

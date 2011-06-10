@@ -18,7 +18,8 @@ class ClubsController < ApplicationController
   # GET /clubs
   # GET /clubs.xml
   def index
-    @clubs = Club.all
+    #@clubs = Club.all
+    @clubs = Club.paginate(:page => params[:page])
     @title="All clubs"
 
     respond_to do |format|
@@ -59,6 +60,8 @@ class ClubsController < ApplicationController
   def show
     @club = Club.find(params[:id])
     @members=@club.members
+    #@members=@club.members.paginate(:page => params[10])
+    
     session[:current_club] = @club.id
     @title = @club.login
     #respond_to do |format|
@@ -77,7 +80,8 @@ class ClubsController < ApplicationController
      @title ='club update'
     respond_to do |format|
       if @club.update_attributes(params[:club])
-        format.html { redirect_to(@club, :notice => 'Club was successfully updated.') }
+        format.html { redirect_to @club }
+        flash[:success] = "Club was successfully updated."
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -90,7 +94,8 @@ class ClubsController < ApplicationController
   
     def correct_club
       @club = Club.find(params[:id])
-      redirect_to(root_path, :notice => "denied acces") unless session[:club_id] == @club.id
+      redirect_to(root_path) unless session[:club_id] == @club.id
+      flash[:notice] = "denied acces"
   end
   
   

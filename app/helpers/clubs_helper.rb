@@ -1,11 +1,13 @@
 module ClubsHelper
   
   #
-  def gravatar_for(club, options = { :size => 50 })
+  def gravatar_for_club(club, options = { :size => 50 })
     gravatar_image_tag(club.login.downcase, :alt => club.name,
                                             :class => 'gravatar',
                                             :gravatar => options)
   end
+  
+  
 
 
   # Use this to wrap view elements that the club can't access.

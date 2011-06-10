@@ -1,60 +1,14 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>First name:</b>
-  <%= @member.first_name %>
-</p>
-
-<p>
-  <b>Last name:</b>
-  <%= @member.last_name %>
-</p>
-
-<p>
-  <b>Club:</b>
-  <%= @member.club_id %>
-</p>
-
-<p>
-  <b>Sex:</b>
-  <%= @member.sex %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @member.email %>
-</p>
-
-<p>
-  <b>City:</b>
-  <%= @member.city %>
-</p>
-
-<p>
-  <b>Address:</b>
-  <%= @member.address %>
-</p>
-
-<p>
-  <b>Postale code:</b>
-  <%= @member.postale_code %>
-</p>
-
-<p>
-  <b>Birthday:</b>
-  <%= @member.birthday %>
-</p>
-
-<p>
-  <b>Chip:</b>
-  <%= @member.chip_id %>
-</p>
-
-<p>
-  <b>Password:</b>
-  <%= @member.password %>
-</p>
-
-
-<%= link_to 'Edit', edit_member_path(@member) %> |
-<%= link_to 'Back', members_path %>
+<table class="profile" summary="Profile information">
+	
+  	<tr>
+    	<td class="main">
+      		<h1><%= gravatar_for_member @member %><%= @member.last_name %></h1>
+    	</td>
+    	<td class="sidebar round">
+      		<strong>Name</strong> <%= @member.last_name %>&nbsp;<%= @member.first_name %><br />
+      		<strong>URL</strong>  <%= link_to member_path(@member), @member %><br />
+			<strong><%= link_to "Settings", edit_member_path(@member) %></strong>
+		</td>
+	</tr>
+	
+</table>

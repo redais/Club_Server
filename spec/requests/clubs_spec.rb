@@ -15,6 +15,7 @@ describe "Clubs" do
           fill_in "club_address", :with => ""
           fill_in "club_postale_code", :with => ""
           fill_in "club_city", :with => ""
+          fill_in "club_contact_person", :with => ''
           click_button
           response.should render_template('clubs/new')
           response.should have_selector("div#errorExplanation")

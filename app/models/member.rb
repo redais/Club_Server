@@ -4,9 +4,10 @@ class Member < ActiveRecord::Base
   include Authentication::ByCookieToken
   include Authentication::ModelInstanceMethods
   
+  self.per_page = 10
   belongs_to :club
   
-  set_table_name 'members'
+  #set_table_name 'members'
   
   validates :last_name,   :format     => { :with => Authentication.name_regex, :message => Authentication.bad_name_message },
                           :length     => { :maximum => 50 },
@@ -21,7 +22,7 @@ class Member < ActiveRecord::Base
   validates :email,       :format     => {:with => Authentication.email_regex, :message => Authentication.bad_email_message},
                           :length     => {:maximum => 50},
                           :presence   => true,
-                          :uniqueness => true
+                          :uniqueness => { :case_sensitive => false }
   
   validates :password,    :presence     => true,
                           :confirmation => true,
@@ -36,14 +37,15 @@ class Member < ActiveRecord::Base
                       :length   => { :maximum => 50 }
   
   validates :postale_code, :presence   => true,
-                           :format  => {:with => %r{\d{5}},:message => "should be 12345 "}
+                           :format  => {:with => %r{\d{5}(-\d{4})?},:message => "should be 12345 or 12345-1234 "}
  
   
   validates :city, :presence =>true,
                    :format     => { :with => Authentication.name_regex, :message => Authentication.bad_name_message },
                    :length     => { :maximum => 50 }
                           
-                       
+  validates :sex,   :presence =>true
+  validates_inclusion_of :sex, :in => %w( male female )                  
   
   
   

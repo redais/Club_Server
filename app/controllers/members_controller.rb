@@ -3,7 +3,8 @@ class MembersController < ApplicationController
   # GET /members.xml
   def index
     @members = Member.all
-
+    #@members = Member.paginate(:page => params[:page])
+    @title="All member"
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @members }
@@ -14,7 +15,8 @@ class MembersController < ApplicationController
   # GET /members/1.xml
   def show
     @member = Member.find(params[:id])
-
+    #@members = Member.paginate(:page => params[:page])
+    @title = @member.last_name
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @member }

@@ -20,21 +20,21 @@ class SessionsController < ApplicationController
       create_club_sessions(club)
       new_cookie_flag = (params[:remember_me] == "1")
       handle_remember_cookie! new_cookie_flag
-      #redirect_back_or_default('/', :notice => "Logged in successfully")
-      redirect_to(club, :success => "Logged in successfully as club")
+      redirect_to club
+      flash[:success] = "Logged in successfully as club"
     elsif member
       create_member_sessions(member)
       new_cookie_flag = (params[:remember_me] == "1")
       handle_remember_cookie! new_cookie_flag
-      #redirect_back_or_default('/', :notice => "Logged in successfully")
-      redirect_to(member, :success => "Logged in successfully as member")
-    
+      redirect_to member 
+      flash[:success] = "Logged in successfully as member"
     else
       note_failed_signin
       @login       = params[:login]
       @remember_me = params[:remember_me]
       @title="Log in"
       render :action => 'new'
+      
     end
   end
 

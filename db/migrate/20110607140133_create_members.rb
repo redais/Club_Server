@@ -15,7 +15,7 @@ class CreateMembers < ActiveRecord::Migration
       t.string :salt,             :string, :limit => 40
       t.timestamps
     end
-    add_index :members, :email, :unique => true
+    #add_index :members, :email, :unique => true
     add_index :members, :club_id
   end
 

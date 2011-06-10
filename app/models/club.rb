@@ -6,6 +6,8 @@ class Club < ActiveRecord::Base
   include Authentication::ByCookieToken
   include Authentication::ModelInstanceMethods
   
+  self.per_page = 10
+  
   has_many :members ,:dependent => :destroy
 
 
@@ -29,13 +31,17 @@ class Club < ActiveRecord::Base
                       :length   => { :maximum => 50 }
   
   validates :postale_code, :presence   => true,
-                           :format  => {:with => %r{\d{5}},:message => "should be 12345 "}
+                           :format  => {:with => %r{\d{5}(-\d{4})?},:message => "should be 12345 or 12345-1234 "}
  
   
   validates :city, :presence =>true,
                    :format     => { :with => Authentication.name_regex, :message => Authentication.bad_name_message },
                    :length     => { :maximum => 50 }
-  
+                   
+  validates :contact_person,  :format     => { :with => Authentication.name_regex, :message => Authentication.bad_name_message },
+                              :length     => { :maximum => 50 },
+                              :allow_nil  => true,
+                              :presence   => true
   #before_save :crypted_password
   
   # how to do attr_accessible from here?

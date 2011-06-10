@@ -1,19 +1,24 @@
-<div id='header'>
-	<div id="headertxt01">Web Engineering</div>
-	<div id="toplinks">
-		<%= link_to "Home", root_path %>
-		<%= link_to "Clubs", '/clubs' %>
-		<%= link_to "Events", '#' %>
-        <% if club_logged_in? %>
-			<% club= Club.find(session[:club_id]) %>
-			<%= link_to "Log out[#{club.login}]", logout_path, :method => :delete %>
-		<% elsif member_logged_in?%>
-			<% member= Member.find(session[:member_id]) %>
-			<%= link_to "Log out[#{member.last_name}]", logout_path, :method => :delete %>
-		<% else %>
-			<%= link_to "log in", login_path %>
-      	<% end %>
+<div class="header">
+	<%= image_tag("banner.jpg", :alt => "Logo", :class => "round") %>
+	<div id="nav" class="round">
+		<ul>
+			<li><%= link_to "Home", root_path %></li>
+			<li><%= link_to "Clubs", '/clubs' %></li>
+			<li><%= link_to "Events", '#' %></li>
+        	
+			<% if club_logged_in? %>
+				<% club= Club.find(session[:club_id]) %>
+				<li><%= link_to "Profile", club %></li>
+				<li><%= link_to "Log out[#{club.login}]", logout_path, :method => :delete %></li>
+			<% elsif member_logged_in?%>
+				<% member= Member.find(session[:member_id]) %>
+				<li><%= link_to "Profile", member %></li>
+				<li><%= link_to "Log out[#{member.last_name}]", logout_path, :method => :delete %></li>
+			<% else %>
+				<li><%= link_to "Log in", login_path %></li>
+      		<% end %>
+		</ul>
 	</div>
-	
-	
 </div>
+	
+	

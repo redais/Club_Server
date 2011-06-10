@@ -20,18 +20,11 @@ module SessionsHelper
     def member_logged_in?
       #!!current_club
       !session[:member_id].nil?
-      
     end
     
     
    
-    def current_club?(club)
-       puts "######################"
-        puts current_club.id
-        puts club.id
-      puts "######################"
-      club.id == current_club.id
-    end
+    
 
     # Accesses the current club from the session.
     # Future calls avoid the database because nil is not equal to false.
@@ -42,11 +35,15 @@ module SessionsHelper
     # Store the given club id in the session.
     def create_club_sessions(new_club)
       session[:club_id] = new_club ? new_club.id : nil
-      
-      # The purpose of this line is to create current_club, 
-      # accessible in both controllers and views, which will allow constructions such as
-      # <%= current_club.name %> and redirect_to current_club
-      $current_club = new_club || false
+      self.current_club = new_club
+    end
+    
+    def current_club=(club)
+      @current_club = club
+    end
+    
+    def current_user
+      @current_user     # Useless! Don't use this line.
     end
     
     
