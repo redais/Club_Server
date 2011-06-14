@@ -1,4 +1,9 @@
-<li>
+<tr>
+	<td class="club">
       <%= gravatar_for_club club, :size => 30 %>
-      <%= link_to club.name, club %>
-</li>
+      <%= link_to club.name, club %><br/>
+	  <span class="descr"><%= Faker::Lorem.sentence(5) %></span>
+	 </td>
+</tr>
+
+

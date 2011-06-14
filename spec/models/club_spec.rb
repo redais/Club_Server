@@ -139,6 +139,37 @@ describe Club do
         @club.authenticated?("invalid").should be_false
       end 
    end
+ end
+ 
+ describe "member associations" do
+
+    before(:each) do
+      @club = Club.create(@attr)
+      @attr = { :first_name => "first",
+              :last_name => "last",
+              :email => "email@test.com",
+              :password=>"secret",
+              :password_confirmation=>"secret",
+              :address=>"hjshdjhsjd",
+              :postale_code => '12134',
+              :city =>'mainz',
+              :sex=>"male",
+              :chip_id=>"76176238",
+              :created_at => 1.hour.ago
+             }
+      @m1 = Factory(:member, :club => @club, :created_at => 1.day.ago)
+      @m2 = @club.members.create!(@attr)
+    end
+
+    it "should have a microposts attribute" do
+      @club.should respond_to(:members)
+    end
+    it "should destroy associated members" do
+      @club.destroy
+      [@m1, @m2].each do |m|
+        Member.find_by_id(m.id).should be_nil
+      end
+    end
   end
   
   

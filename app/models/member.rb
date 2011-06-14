@@ -50,6 +50,9 @@ class Member < ActiveRecord::Base
   
   
   attr_accessible :first_name, :last_name, :sex, :email, :city ,:address, :postale_code, :birthday, :chip_id, :password, :password_confirmation
+  
+  default_scope :order => 'members.created_at DESC'
+  
   # Authenticates a club_member by their email and unencrypted password.  Returns the member or nil.
   #
   # uff.  this is really an authorization, not authentication routine.  

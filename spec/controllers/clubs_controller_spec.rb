@@ -75,6 +75,18 @@ describe ClubsController do
   describe "GET 'show'" do
     
     before(:each) do
+      @attr = { :first_name => "first",
+              :last_name => "last",
+              :email => "email@test.com",
+              :password=>"secret",
+              :password_confirmation=>"secret",
+              :address=>"hjshdjhsjd",
+              :postale_code => '12134',
+              :city =>'mainz',
+              :sex=>"male",
+              :chip_id=>"76176238"
+              
+             }
       @club = Factory(:club)
     end
     it "should be successful" do
@@ -103,6 +115,13 @@ describe ClubsController do
       get :show, :id => @club
       response.should have_selector("h1>img", :class => "gravatar")
     end
+    it "should show the club's members" #do
+      #m1 = Factory(:member, :club => @club)
+      #m2 = @club.members.create!(@attr)
+      #get :show, :id => @club
+      #response.should have_selector(".member")
+      
+    #end
   end
   
   

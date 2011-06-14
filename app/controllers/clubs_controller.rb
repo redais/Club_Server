@@ -6,7 +6,7 @@ class ClubsController < ApplicationController
   # The application code gets these tests to pass using a before filter,
   # which arranges for a particular method to be called before the given actions. 
   # In this case, we define an login_required method (see sessionshelper)
-  before_filter :login_required, :only => [ :edit, :update ]
+  before_filter :club_login_required, :only => [ :edit, :update ]
   
   
   #requiring clubs to sign in isn’t quite enough
@@ -59,7 +59,7 @@ class ClubsController < ApplicationController
   
   def show
     @club = Club.find(params[:id])
-    @members=@club.members
+    @members=@club.members.paginate(:page => params[:page])
     #@members=@club.members.paginate(:page => params[10])
     
     session[:current_club] = @club.id
@@ -96,7 +96,7 @@ class ClubsController < ApplicationController
       @club = Club.find(params[:id])
       redirect_to(root_path) unless session[:club_id] == @club.id
       flash[:notice] = "denied acces"
-  end
+    end
   
   
 

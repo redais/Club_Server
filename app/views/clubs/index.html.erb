@@ -1,9 +1,11 @@
 <h1>All clubs</h1>
 <%= will_paginate %>
-<ul class="clubs">
+<table class="clubs">
   <% @clubs.each do |club| %>
     <%= render club %>
   <% end %>
-</ul>
+</table>
 
 <%= will_paginate %>
+
+

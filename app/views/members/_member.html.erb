@@ -1,7 +1,8 @@
 <tr>
   <td class="member">
-  	<span class="content"><%= member.last_name %>&nbsp;<%= member.first_name %></span>
+  	<span class="content"><%= member.last_name %>&nbsp;<%= member.first_name %></span><br/>
     <span class="content"><%= member.email %></span>&nbsp;|&nbsp; 
-	<%= link_to "delete", member, :method => :delete, :confirm => "You sure?",:title => "Delete #{member.first_name}" %>
+	<%= link_to "delete", member, :method => :delete, :confirm => "You sure?",:title => "Delete #{member.first_name}" %></span><br/>
+	<span class="descr"></span>
   </td>
 </tr>

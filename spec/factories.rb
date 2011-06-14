@@ -9,7 +9,7 @@ Factory.define :club do |club|
   club.password_confirmation "111111"
   club.contact_person         "test"
 end
-=begin
+
 Factory.define :member do |member|
   member.last_name           "Hartl"
   member.first_name          "Michael"
@@ -18,7 +18,7 @@ Factory.define :member do |member|
   member.address                "Test Strasse 10"
   member.postale_code           "12122"
   member.city                   "Mainz"
+  member.chip_id              "12121"
   member.password            "foobar"
   member.password_confirmation "foobar"
 end
-=end

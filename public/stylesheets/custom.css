@@ -153,3 +153,75 @@ td.sidebar {
   list-style: square;
 }
 
+/*Club*/
+
+
+
+table.clubs {
+  margin-top: 1em;
+}
+
+table.clubs tr {
+  height: 70px;
+}
+
+
+
+table.clubs tr td.club {
+  border-top: 1px solid #ccc;
+  vertical-align: top;
+  padding-top: 10px;
+  background :#ffffff;
+}
+
+
+
+/*Member*/
+
+h1.member {
+  margin-bottom: 0.3em;
+}
+
+table.members {
+  margin-top: 1em;
+}
+
+table.members tr {
+  height: 70px;
+}
+
+table.members tr td.gravatar {
+  border-top: 1px solid #ccc;
+  vertical-align: top;
+  width: 50px;
+}
+
+table.members tr td.member {
+  border-top: 1px solid #ccc;
+  vertical-align: top;
+  padding-top: 10px;
+  background :#ffffff;
+}
+
+table.members tr td.member {
+  display: block;
+  font-size: 100%;
+  color: #666;
+}
+
+div.club_info img {
+  padding-right: 0.1em;
+}
+
+div.club_info a {
+  text-decoration: none;
+}
+
+div.club_info span.club_name {
+  position: absolute;
+}
+
+div.club_info span.members {
+  font-size: 80%;
+}
+

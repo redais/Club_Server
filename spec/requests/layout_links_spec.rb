@@ -39,7 +39,7 @@ describe "LayoutLinks" do
 
     it "should have a log out link" do
       visit root_path
-      response.should have_selector("a", :href => logout_path,:content => "Sign out[#{@club.login}]")
+      response.should have_selector("a", :href => logout_path,:content => "Log out[#{@club.login}]")
     end
 
     it "should have a profile link"

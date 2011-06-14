@@ -1,12 +1,12 @@
 My::Application.routes.draw do
   
 
-  resources :members
+
 
   resources :clubs
 
   resource :session, :only => [:new, :create, :destroy]
-  
+    resources :members, :only => [:new,:create, :destroy, :show, :edit, :update ]
   get "pages/home"
 
   match 'signup' => 'clubs#new', :as => :signup

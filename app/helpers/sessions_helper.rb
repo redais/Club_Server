@@ -74,8 +74,11 @@ module SessionsHelper
     #    current_club.login != "bob"
     #  end
     #
-    def authorized?(action = action_name, resource = nil)
+    def club_authorized?(action = action_name, resource = nil)
       club_logged_in?
+    end
+    def member_authorized?(action = action_name, resource = nil)
+      member_logged_in?
     end
 
     # Filter method to enforce a login requirement.
@@ -92,8 +95,11 @@ module SessionsHelper
     #
     #   skip_before_filter :login_required
     #
-    def login_required
-      authorized? || access_denied
+    def club_login_required
+      club_authorized? || access_denied
+    end
+    def member_login_required
+      member_authorized? || access_denied
     end
 
     # Redirect as appropriate when an access request fails.

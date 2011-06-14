@@ -1,15 +1,7 @@
 class MembersController < ApplicationController
-  # GET /members
-  # GET /members.xml
-  def index
-    @members = Member.all
-    #@members = Member.paginate(:page => params[:page])
-    @title="All member"
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @members }
-    end
-  end
+ 
+ before_filter :member_login_required, :only => [:show, :edit, :update ]
+ #before_filter :member_club, :only => [:new ]
 
   # GET /members/1
   # GET /members/1.xml
@@ -17,17 +9,18 @@ class MembersController < ApplicationController
     @member = Member.find(params[:id])
     #@members = Member.paginate(:page => params[:page])
     @title = @member.last_name
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @member }
-    end
+    #respond_to do |format|
+     # format.html # show.html.erb
+     # format.xml  { render :xml => @member }
+    #end
   end
 
   # GET /members/new
   
   def new
     @title="Sign up"
-    @member = Member.new
+    #@club=Club.find(session[:current_club])
+    @member = Member.new unless session[:current_club]==nil
   end
 
   # GET /members/1/edit
@@ -46,7 +39,7 @@ class MembersController < ApplicationController
    
    
       if success
-        #session[:current_club]=nil
+        session[:current_club]=nil
         # Member dem Club zuordnen
         # @club.members << @member
         flash[:success] = "Member created for #{@club.name}"
@@ -77,12 +70,16 @@ class MembersController < ApplicationController
   # DELETE /members/1
   # DELETE /members/1.xml
   def destroy
-    @member = Member.find(params[:id])
+    #@member = Member.find(params[:id])
     @member.destroy
 
-    respond_to do |format|
-      format.html { redirect_to(members_url) }
-      format.xml  { head :ok }
-    end
+    redirect_back_or_default(root_path)
   end
+  
+  private
+  
+    def member_club
+      redirect_to("/") if session[:current_club] == nil
+      #flash[:notice] = "denied acces"
+    end
 end

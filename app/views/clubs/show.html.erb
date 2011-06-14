@@ -9,9 +9,10 @@
 	  
 	  <%if session[:club_id]==@club.id%>
 	  	<% unless @club.members.empty? %>
-        	<table class="club_members" summary="Club Members">
+        	<table class="members" summary="Club Members">
           		<%= render @members %>
         	</table>
+			<%= will_paginate @members %>
        	<% end %>
 		<td class="sidebar round">
       		<strong>Name</strong> <%= @club.name %><br />
